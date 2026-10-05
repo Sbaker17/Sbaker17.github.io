@@ -1,2 +1,414 @@
-<h1>Samuel Baker</h1>
-<p>My HIST 280 work will be here.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Samuel Baker's portfolio: global health research, coursework, and technical skills.">
+	<title>Samuel Baker | Portfolio</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #183b39;
+			--muted: #526b68;
+			--paper: #f4f7f2;
+			--surface: #ffffff;
+			--line: #d7e2dc;
+			--green: #176b58;
+			--lime: #d8ed85;
+			--coral: #ce6046;
+			--mono: "DM Mono", monospace;
+			--sans: "Manrope", sans-serif;
+			--serif: "Newsreader", Georgia, serif;
+		}
+
+		* { box-sizing: border-box; }
+
+		html { scroll-behavior: smooth; }
+
+		body {
+			margin: 0;
+			color: var(--ink);
+			background-color: var(--paper);
+			background-image: repeating-linear-gradient(0deg, transparent, transparent 39px, rgb(24 59 57 / 3%) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgb(24 59 57 / 3%) 40px);
+			font-family: var(--sans);
+			line-height: 1.65;
+		}
+
+		a { color: inherit; }
+
+		a:focus-visible { outline: 3px solid var(--coral); outline-offset: 4px; }
+
+		.shell { width: min(1080px, calc(100% - 48px)); margin: 0 auto; }
+
+		.topbar {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			min-height: 76px;
+			border-bottom: 1px solid var(--line);
+		}
+
+		.wordmark { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0; text-decoration: none; }
+
+		nav { display: flex; gap: 26px; }
+
+		nav a { color: var(--muted); font-size: 12px; font-weight: 700; text-decoration: none; }
+		nav a:hover { color: var(--green); }
+
+		.hero {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) 255px;
+			gap: 56px;
+			align-items: center;
+			padding: 88px 0 78px;
+		}
+
+		.eyebrow, .section-label, .date, .tag {
+			font-family: var(--mono);
+			font-size: 11px;
+			letter-spacing: 0;
+			text-transform: uppercase;
+		}
+
+		.eyebrow { display: flex; align-items: center; gap: 10px; color: var(--green); }
+		.eyebrow::before { width: 25px; height: 2px; background: var(--coral); content: ""; }
+
+		h1 {
+			max-width: 650px;
+			margin: 18px 0 20px;
+			font-family: var(--serif);
+			font-size: clamp(54px, 8vw, 88px);
+			font-weight: 500;
+			letter-spacing: 0;
+			line-height: .98;
+		}
+
+		.intro { max-width: 620px; margin: 0; color: var(--muted); font-size: 16px; }
+
+		.hero-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+
+		.button {
+			display: inline-flex;
+			min-height: 44px;
+			align-items: center;
+			justify-content: center;
+			padding: 0 17px;
+			border: 1px solid var(--green);
+			background: var(--green);
+			color: #fff;
+			font-size: 12px;
+			font-weight: 800;
+			text-decoration: none;
+			transition: background .18s ease, color .18s ease;
+		}
+
+		.button:hover { background: var(--ink); }
+		.button.secondary { background: transparent; color: var(--green); }
+		.button.secondary:hover { background: var(--green); color: #fff; }
+
+		.hero-note {
+			position: relative;
+			display: flex;
+			min-height: 250px;
+			flex-direction: column;
+			justify-content: space-between;
+			padding: 24px;
+			overflow: hidden;
+			background: var(--lime);
+		}
+
+		.hero-note::after {
+			position: absolute;
+			right: -39px;
+			bottom: -58px;
+			width: 170px;
+			height: 170px;
+			border: 1px solid rgb(24 59 57 / 35%);
+			border-radius: 50%;
+			box-shadow: 0 0 0 17px rgb(24 59 57 / 5%), 0 0 0 35px rgb(24 59 57 / 5%);
+			content: "";
+		}
+
+		.hero-note .section-label { color: var(--green); }
+		.hero-note strong { max-width: 175px; font-family: var(--serif); font-size: 27px; font-weight: 500; line-height: 1.15; }
+		.hero-note span:last-child { font-family: var(--mono); font-size: 10px; text-transform: uppercase; }
+
+		main { background: var(--surface); }
+
+		.section { padding: 68px 0; border-bottom: 1px solid var(--line); }
+
+		.section-heading {
+			display: grid;
+			grid-template-columns: 190px minmax(0, 1fr);
+			gap: 24px;
+			align-items: baseline;
+			margin-bottom: 34px;
+		}
+
+		.section-label { color: var(--coral); }
+
+		h2 { margin: 0; font-family: var(--serif); font-size: 39px; font-weight: 500; letter-spacing: 0; line-height: 1.1; }
+
+		.education {
+			display: grid;
+			grid-template-columns: 1fr auto;
+			gap: 8px 24px;
+			padding: 24px 0;
+			border-top: 1px solid var(--line);
+		}
+
+		.education h3, .job h3 { margin: 0; font-size: 16px; font-weight: 800; }
+		.education .degree { margin: 2px 0 0; color: var(--muted); }
+		.education .date { align-self: start; color: var(--muted); text-align: right; }
+		.coursework { grid-column: 1 / -1; margin: 8px 0 0; color: var(--muted); font-size: 13px; }
+		.coursework strong { color: var(--ink); }
+
+		.timeline { border-top: 1px solid var(--line); }
+
+		.job {
+			display: grid;
+			grid-template-columns: 190px minmax(0, 1fr);
+			gap: 24px;
+			padding: 28px 0 30px;
+			border-bottom: 1px solid var(--line);
+		}
+
+		.job-meta { position: relative; padding-left: 17px; }
+		.job-meta::before { position: absolute; top: 7px; left: 0; width: 7px; height: 7px; background: var(--coral); content: ""; }
+		.date { display: block; color: var(--muted); line-height: 1.6; }
+		.job h3 { line-height: 1.4; }
+		.job .role { margin: 3px 0 12px; color: var(--green); font-size: 13px; font-weight: 700; }
+		.job ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 13px; }
+		.job li + li { margin-top: 5px; }
+
+		.project-note {
+			display: flex;
+			justify-content: space-between;
+			gap: 24px;
+			align-items: center;
+			padding: 24px;
+			border-left: 3px solid var(--lime);
+			background: #f4f8ef;
+		}
+
+		.project-note p { max-width: 610px; margin: 0; color: var(--muted); font-size: 14px; }
+		.tag { flex: 0 0 auto; padding: 7px 9px; background: var(--lime); color: var(--ink); }
+
+		.skills-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+		.skill { padding: 20px 20px 20px 0; border-bottom: 1px solid var(--line); }
+		.skill:nth-child(odd) { border-right: 1px solid var(--line); }
+		.skill:nth-child(even) { padding-left: 20px; }
+		.skill h3 { margin: 0 0 5px; font-family: var(--mono); font-size: 11px; font-weight: 500; text-transform: uppercase; }
+		.skill p { margin: 0; color: var(--muted); font-size: 13px; }
+
+		footer { display: flex; justify-content: space-between; gap: 24px; padding: 28px 0 38px; color: var(--muted); font-size: 12px; }
+		footer a { color: var(--green); font-weight: 800; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+		@media (max-width: 700px) {
+			.shell { width: min(100% - 36px, 560px); }
+			.topbar { min-height: 64px; }
+			nav { gap: 14px; }
+			nav a { font-size: 11px; }
+			.hero { grid-template-columns: 1fr; gap: 32px; padding: 64px 0 54px; }
+			.hero-note { min-height: 175px; }
+			.hero-note strong { max-width: 230px; }
+			.section { padding: 50px 0; }
+			.section-heading { grid-template-columns: 1fr; gap: 8px; margin-bottom: 24px; }
+			h2 { font-size: 34px; }
+			.job { grid-template-columns: 1fr; gap: 10px; }
+			.job-meta { padding-left: 14px; }
+			.education { grid-template-columns: 1fr; gap: 4px; }
+			.education .date { text-align: left; }
+			.project-note { align-items: flex-start; flex-direction: column; }
+		}
+
+		@media (max-width: 420px) {
+			nav { gap: 10px; }
+			nav a { font-size: 10px; }
+			.skills-grid { grid-template-columns: 1fr; }
+			.skill:nth-child(odd) { border-right: 0; }
+			.skill:nth-child(even) { padding-left: 0; }
+			footer { flex-direction: column; gap: 5px; }
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			html { scroll-behavior: auto; }
+			*, *::before, *::after { transition-duration: .01ms !important; }
+		}
+	</style>
+</head>
+<body>
+	<header class="shell topbar">
+		<a class="wordmark" href="#home">SB / PORTFOLIO</a>
+		<nav aria-label="Main navigation">
+			<a href="#about">About</a>
+			<a href="#experience">Experience</a>
+			<a href="#projects">Projects</a>
+			<a href="#skills">Skills</a>
+		</nav>
+	</header>
+
+	<div class="shell hero" id="home">
+		<div>
+			<div class="eyebrow">Global health · Research · Technology</div>
+			<h1>Samuel<br>Baker</h1>
+			<p class="intro">I am a Global Health student at Denison University with a minor in Computer Science. My interests include clinical research, epidemiology, and using data to better understand health outcomes.</p>
+			<div class="hero-links">
+				<a class="button" href="mailto:sbakkar2004@gmail.com">Get in touch</a>
+				<a class="button secondary" href="#experience">Explore my experience</a>
+			</div>
+		</div>
+		<aside class="hero-note" aria-label="Education highlight">
+			<span class="section-label">Currently</span>
+			<strong>Denison University</strong>
+			<span>BA Global Health · Class of 2027</span>
+		</aside>
+	</div>
+
+	<main>
+		<section class="section" id="about">
+			<div class="shell">
+				<div class="section-heading">
+					<span class="section-label">01 / Education</span>
+					<h2>Learning across disciplines.</h2>
+				</div>
+				<article class="education">
+					<div>
+						<h3>Denison University</h3>
+						<p class="degree">Bachelor of Arts in Global Health, Computer Science Minor · Granville, Ohio</p>
+					</div>
+					<span class="date">Expected May 2027</span>
+					<p class="coursework"><strong>Relevant coursework:</strong> Epidemiology, Research Methods, Global Maternal and Childhood Health, Health Systems and Policy, Health and Exercise Science, Data Systems, Computer Science, Mathematical Foundations of Computer Science, and Intermediate Arabic.</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="section" id="experience">
+			<div class="shell">
+				<div class="section-heading">
+					<span class="section-label">02 / Experience</span>
+					<h2>Research, service, and collaboration.</h2>
+				</div>
+				<div class="timeline">
+					<article class="job">
+						<div class="job-meta"><span class="date">May 2026 — Aug 2026</span></div>
+						<div>
+							<h3>Endeavor Health</h3>
+							<p class="role">Undergraduate Research Intern · Evanston, Illinois</p>
+							<ul>
+								<li>Designed a retrospective clinical research study in TriNetX, defining the research question, patient cohorts, inclusion and exclusion criteria, and outcome measures.</li>
+								<li>Refined cohort definitions and query parameters for a second study, using published critiques of TriNetX research to address methodological limitations.</li>
+								<li>Compared patient outcomes using propensity score matching, risk ratios, and Kaplan–Meier survival analysis.</li>
+								<li>Drafted manuscript sections and prepared tables and graphs to communicate cohort characteristics and study outcomes.</li>
+								<li>Presented study designs, progress, and findings to faculty, research team members, and collaborators.</li>
+							</ul>
+						</div>
+					</article>
+					<article class="job">
+						<div class="job-meta"><span class="date">Oct 2025 — Present</span></div>
+						<div>
+							<h3>Denison University Library</h3>
+							<p class="role">Government Documents Assistant · Granville, Ohio</p>
+							<ul>
+								<li>Track inventories and organize document records using Excel, supporting library data projects.</li>
+								<li>Process Federal Depository Library Program materials for exchange with other libraries.</li>
+								<li>Locate and retrieve government information across physical and digital collections.</li>
+							</ul>
+						</div>
+					</article>
+					<article class="job">
+						<div class="job-meta"><span class="date">Aug 2025 — Dec 2025</span></div>
+						<div>
+							<h3>Denison University · Global Health 202</h3>
+							<p class="role">Epidemiology Teaching Assistant · Granville, Ohio</p>
+							<ul>
+								<li>Supported students in individual and group sessions covering study design, disease patterns, and statistical methods.</li>
+								<li>Assisted with grading, class preparation, and data management.</li>
+							</ul>
+						</div>
+					</article>
+					<article class="job">
+						<div class="job-meta"><span class="date">Jul 2024 — Aug 2024</span></div>
+						<div>
+							<h3>Chicago Field Museum · Aramark</h3>
+							<p class="role">Environmental Services Technician · Chicago, Illinois</p>
+							<ul>
+								<li>Maintained safe, sanitary spaces for staff and visitors and reported facility or safety concerns.</li>
+								<li>Coordinated with departments during setup and breakdown for large events.</li>
+							</ul>
+						</div>
+					</article>
+					<article class="job">
+						<div class="job-meta"><span class="date">Jul 2021 — Aug 2021</span></div>
+						<div>
+							<h3>One Summer Chicago</h3>
+							<p class="role">Job Readiness Intern · Chicago, Illinois</p>
+							<ul>
+								<li>Participated in a city-wide youth employment program, building office administration skills and attending professional development workshops.</li>
+							</ul>
+						</div>
+					</article>
+					<article class="job">
+						<div class="job-meta"><span class="date">Oct 2017 — Jan 2020</span></div>
+						<div>
+							<h3>Neighborhood Boys and Girls Club</h3>
+							<p class="role">Youth Leader · Chicago, Illinois</p>
+							<ul>
+								<li>Mentored younger members and encouraged teamwork, respect, and inclusion through hands-on peer support.</li>
+							</ul>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="projects">
+			<div class="shell">
+				<div class="section-heading">
+					<span class="section-label">03 / Coursework</span>
+					<h2>Class projects.</h2>
+				</div>
+				<div class="project-note">
+					<p>This space is ready for selected class projects, including HIST 280 work. Each project can include its research question, a short summary, your role, and a link to the finished work.</p>
+					<span class="tag">Projects in progress</span>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="skills">
+			<div class="shell">
+				<div class="section-heading">
+					<span class="section-label">04 / Skills</span>
+					<h2>Tools and strengths.</h2>
+				</div>
+				<div class="skills-grid">
+					<div class="skill">
+						<h3>Data &amp; Analysis</h3>
+						<p>SPSS, Stata, SQL, Pandas, Excel</p>
+					</div>
+					<div class="skill">
+						<h3>Programming</h3>
+						<p>Python, C++, Java, HTML</p>
+					</div>
+					<div class="skill">
+						<h3>Research</h3>
+						<p>Clinical research, epidemiology, research design, report writing</p>
+					</div>
+					<div class="skill">
+						<h3>Communication</h3>
+						<p>Microsoft Office, presentations, Arabic (intermediate speaking and writing)</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="shell">
+		<span>Samuel Baker · Denison University, Class of 2027</span>
+		<a href="mailto:sbakkar2004@gmail.com">sbakkar2004@gmail.com</a>
+	</footer>
+</body>
+</html>
