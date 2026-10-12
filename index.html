@@ -196,6 +196,33 @@
 
 		.project-note p { max-width: 610px; margin: 0; color: var(--muted); font-size: 14px; }
 		.tag { flex: 0 0 auto; padding: 7px 9px; background: var(--lime); color: var(--ink); }
+		.project-note.featured-project {
+			position: relative;
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 18px;
+			padding: 30px;
+			border: 1px solid var(--line);
+			border-left: 4px solid var(--coral);
+			background: linear-gradient(120deg, #f4f8ef 0%, #fff 72%);
+		}
+		.featured-project h3 { margin: 0 0 8px; font-family: var(--serif); font-size: 27px; font-weight: 500; line-height: 1.2; }
+		.featured-project p { max-width: 650px; }
+		.featured-project .project-link {
+			display: inline-flex;
+			min-height: 43px;
+			align-items: center;
+			gap: 10px;
+			padding: 0 15px;
+			background: var(--green);
+			color: #fff;
+			font-size: 12px;
+			font-weight: 800;
+			text-decoration: none;
+			transition: background .18s ease, transform .18s ease;
+		}
+		.featured-project .project-link:hover { transform: translateY(-2px); background: var(--ink); }
+		.featured-project .project-link:focus-visible { outline: 3px solid var(--coral); outline-offset: 4px; }
 
 		.skills-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
 		.skill { padding: 20px 20px 20px 0; border-bottom: 1px solid var(--line); }
@@ -371,10 +398,14 @@
 					<span class="section-label">03 / Coursework</span>
 					<h2>Class projects.</h2>
 				</div>
-				<div class="project-note">
-					<p>This space is ready for selected class projects, including HIST 280 work. Each project can include its research question, a short summary, your role, and a link to the finished work.</p>
-					<span class="tag">Projects in progress</span>
-				</div>
+				<article class="project-note featured-project">
+					<span class="tag">HIST 280 · Digital history</span>
+					<div>
+						<h3>Tracing the DNA of songs</h3>
+						<p>A visual review of The Pudding’s project on musical connections, its research process, and how its interactive story works.</p>
+					</div>
+					<a class="project-link" href="historyProjectReview.html">View the project review <span aria-hidden="true">↗</span></a>
+				</article>
 			</div>
 		</section>
 
